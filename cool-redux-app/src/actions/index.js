@@ -12,7 +12,7 @@ export const pullQuote = () => dispatch => {
     .then(res => {
       console.log("res", res);
       let quotetext = res.data.value.joke;
-      let quotetextfmt = quotetext.replace(/&quot;/g, '\\"');
+      let quotetextfmt = quotetext.replace(/&quot;/g, '"');
       dispatch({ type: FETCHING_QUOTE_SUCCESS, payload: quotetextfmt });
     })
     .catch(err => {
