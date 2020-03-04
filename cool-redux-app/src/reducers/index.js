@@ -24,3 +24,14 @@ export const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+// return {
+//     ...state,
+//     car: {
+//       ...state.car,
+//       price: state.car.price - action.payload.price,
+//       features: state.car.features.filter(
+//         item => item.id !== action.payload.id
+//       )
+//     }
+//   };

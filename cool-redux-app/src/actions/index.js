@@ -1,4 +1,4 @@
-import axios from "react";
+import axios from "axios";
 
 export const FETCHING_QUOTE_START = "FETCHING_QUOTE_START";
 export const FETCHING_QUOTE_SUCCESS = "FETCHING_QUOTE_SUCCESS";
@@ -11,8 +11,13 @@ export const pullQuote = () => dispatch => {
     .get("http://api.icndb.com/jokes/random")
     .then(res => {
       console.log("res", res);
+      dispatch({ type: FETCHING_QUOTE_SUCCESS, payload: res.data.value.joke });
     })
     .catch(err => {
       console.log("err", err);
+      //   dispatch({
+      //     type: FETCHING_QUOTE_FAILURE,
+      //     payload: `${err.response.message}`
+      //   });
     });
 };
