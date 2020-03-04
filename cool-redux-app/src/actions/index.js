@@ -11,7 +11,9 @@ export const pullQuote = () => dispatch => {
     .get("http://api.icndb.com/jokes/random")
     .then(res => {
       console.log("res", res);
-      dispatch({ type: FETCHING_QUOTE_SUCCESS, payload: res.data.value.joke });
+      let quotetext = res.data.value.joke;
+      let quotetextfmt = quotetext.replace(/&quot;/g, '\\"');
+      dispatch({ type: FETCHING_QUOTE_SUCCESS, payload: quotetextfmt });
     })
     .catch(err => {
       console.log("err", err);
